@@ -19,7 +19,7 @@
                                                                                                                                                                                            
       async function dispararLead() {                                                                                                                                                      
         const eventId = 'Lead' + Date.now();
-        fbq('track', 'Search', {}, { eventID: eventId });                                                                                                                                  
+        fbq('track', 'Lead', {}, { eventID: eventId });                                                                                                                                  
                                                                                                                                                                                            
         await fetch('https://jotap-api-gp-ashen.vercel.app/api/lead', {                                                                                                                       
           method: 'POST',                                                                                                                                                                  
@@ -65,7 +65,7 @@
               padding: 30px 0;
               background:                                                                                                                                                                  
                   linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-                  url('api-hn (2).webp') center/cover no-repeat fixed;                                                                                                                     
+                  url('api-gp.webp') center/cover no-repeat fixed;                                                                                                                     
           }                                                                                                                                                                                
                                                                                                                                                                                            
           .header-section { width: 100%; text-align: center; }                                                                                                                             
