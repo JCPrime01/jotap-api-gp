@@ -14,14 +14,14 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',                                                                                                                           
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1483591503116728');                                                                                                                                                                                                                                                                                                          
+      fbq('init', '1472864677756083');                                                                                                                                                                                                                                                                                                          
       fbq('track', 'PageView');                                                                                                                                                            
                                                                                                                                                                                            
       async function dispararLead() {                                                                                                                                                      
-        const eventId = 'Lead' + Date.now();
-        fbq('track', 'Lead', {}, { eventID: eventId });                                                                                                                                  
+        const eventId = 'Donate' + Date.now();
+        fbq('track', 'Donate', {}, { eventID: eventId });                                                                                                                                  
                                                                                                                                                                                            
-        await fetch('https://jotap-api-gp-ashen.vercel.app/api/lead', {                                                                                                                       
+        await fetch('https://jotap-api-ga.vercel.app/api/lead', {                                                                                                                       
           method: 'POST',                                                                                                                                                                  
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({                                                                                                                                                           
@@ -34,7 +34,7 @@
       }           
       </script>
       <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1483591503116728&ev=PageView&noscript=1"                                                                                                          
+      src="https://www.facebook.com/tr?id=1472864677756083&ev=PageView&noscript=1"                                                                                                          
       /></noscript>                                                                                                                                                                        
       <style>                                                                                                                                                                              
           @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,900;1,900&display=swap');                                                                                
