@@ -13,7 +13,7 @@
   
     const payload = {                                                                                                                                                                      
       data: [{    
-        event_name: 'Lead',
+        event_name: 'Donate',
         event_time: Math.floor(Date.now() / 1000),                                                                                                                                         
         event_id: eventId,
         action_source: 'website',                                                                                                                                                          
