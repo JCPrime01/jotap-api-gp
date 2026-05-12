@@ -1,234 +1,223 @@
-<!DOCTYPE html>
-  <html lang="pt-br">                                                                                                             
-  <head>
-      <meta charset="UTF-8">                  
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <title>Comunidade do Jota - Jogos do Dia</title>
+<!DOCTYPE html>                                                                                                                                                              
+  <html lang="pt-BR">                                                                                                                                                          
+  <head>                                                                                                                                                                       
+      <meta charset="UTF-8">                                                                                                                                                   
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">                                                              
+      <title>Comunidade HN - Oficial</title>  
                                                                                                                                                                                
       <script>                            
       !function(f,b,e,v,n,t,s)                                                                                                                                                 
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?                                                                                                                        
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};                                                                                                                
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';                                                                                                                
-      n.queue=[];t=b.createElement(e);t.async=!0;                                                                                                                              
+      n.queue=[];t=b.createElement(e);t.async=!0;                                                                                                                            
       t.src=v;s=b.getElementsByTagName(e)[0];                                                                                                                                  
-      s.parentNode.insertBefore(t,s)}(window, document,'script',                                                                                                               
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');                                                                                                                       
-      fbq('init', '961619428689288');     
+      fbq('init', '961619428689288');                                                                                                                                        
       fbq('track', 'PageView');                                                                                                                                                
-                                                                                                                                                                               
-      async function dispararLead(e) {        
+                                                                                                                                                                             
+      async function dispararLead(e) {                                                                                                                                         
         e.preventDefault();                                                                                                                                                    
         const eventId = 'cr_' + Date.now();
-        fbq('track', 'CompleteRegistration', {}, { eventID: eventId });                                                                                                        
-                                              
+        fbq('track', 'CompleteRegistration', { currency: 'BRL', value: 0 }, { eventID: eventId });                                                                             
+                                                                                                                                                                             
         try {                                                                                                                                                                  
-          await fetch('https://track-jp-production.up.railway.app/api/lead', {
+          await fetch('https://track-jp-production.up.railway.app/api/lead', {                                                                                                 
             method: 'POST',                                                                                                                                                    
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },                                                                                                                   
             body: JSON.stringify({                                                                                                                                             
               fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,                                                                                                         
               fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
               userAgent: navigator.userAgent,                                                                                                                                  
-              eventId: eventId            
+              eventId: eventId                                                                                                                                                 
             })                                                                                                                                                                 
           });                                                                                                                                                                  
         } catch(err) {}                                                                                                                                                        
                                                                                                                                                                                
-        window.location.href = 'https://rg.redirecionar.online/';
+        window.location.href = 'https://rg.redirecionar.online/';                                                                                                            
       }
       </script>                                                                                                                                                                
-      <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=961619428689288&ev=PageView&noscript=1"                                                                                              
-      /></noscript>                           
-                                          
+   
+      <link rel="preconnect" href="https://fonts.googleapis.com">                                                                                                              
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&display=swap" rel="stylesheet">                                              
+                                              
       <style>                                                                                                                                                                  
-          @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,900;1,900&display=swap');                                                                    
+        * { margin: 0; padding: 0; box-sizing: border-box; }
                                                                                                                                                                                
-          :root {                                                                                                                                                              
-              --primary: #00ff88;
-              --bg: #020202;                                                                                                                                                   
-          }                                   
+        body {                                                                                                                                                               
+          background-color: #000E01;                                                                                                                                           
+          height: 100vh;                                                                                                                                                       
+          display: flex;
+          flex-direction: column;                                                                                                                                              
+          align-items: center;                                                                                                                                               
+          justify-content: center;            
+          font-family: 'Inter', sans-serif;
+          padding: 10px;
+          overflow: hidden;                                                                                                                                                    
+        }                                     
                                                                                                                                                                                
-          * { margin: 0; padding: 0; box-sizing: border-box; }
+        .card {                                                                                                                                                              
+          width: 100%;                                                                                                                                                         
+          max-width: 380px;
+          background: #001301;                                                                                                                                                 
+          border: 1px solid #02FF6B;                                                                                                                                         
+          border-radius: 20px;            
+          padding: 15px 20px 25px;
+          display: flex;                                                                                                                                                       
+          flex-direction: column;         
+          align-items: center;                                                                                                                                                 
+          gap: 8px;                                                                                                                                                            
+          position: relative;                 
+        }                                                                                                                                                                      
+                                                                                                                                                                             
+        .vagas-box {                                                                                                                                                           
+          background: rgba(255, 255, 0, 0.1);
+          border: 1px solid #FFFF00;                                                                                                                                           
+          border-radius: 8px;                                                                                                                                                
+          padding: 5px 15px;
+          margin-bottom: 5px;                                                                                                                                                  
+          animation: pulse-yellow 2s infinite;
+        }                                                                                                                                                                      
                                                                                                                                                                                
-          body {
-              background-color: var(--bg);                                                                                                                                     
-              color: #fff;                    
-              overflow-x: hidden;         
-              min-height: 100vh;
-              font-family: 'Arial', sans-serif;                                                                                                                                
-          }                               
+        .vagas-text { color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        #numero-vagas { color: #FFFF00; font-size: 16px; font-weight: bold; }                                                                                                  
+                                                                                                                                                                             
+        @keyframes pulse-yellow {                                                                                                                                              
+          0% { box-shadow: 0 0 0px rgba(255, 255, 0, 0); }
+          50% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.3); }                                                                                                                 
+          100% { box-shadow: 0 0 0px rgba(255, 255, 0, 0); }                                                                                                                 
+        }                                                                                                                                                                      
                                                                                                                                                                                
-          .lp-wrapper {                                                                                                                                                        
-              position: relative;
-              z-index: 10;                                                                                                                                                     
-              width: 100%;                    
-              min-height: 100vh;          
-              display: flex;
-              flex-direction: column;                                                                                                                                          
-              justify-content: space-between;
-              padding: 30px 0;                                                                                                                                                 
-              background:                 
-                  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-                  url('api-gp.webp') center/cover no-repeat fixed;                                                                                                             
-          }                                   
+        .card img { width: 100%; max-width: 280px; height: auto; }                                                                                                             
                                                                                                                                                                                
-          .header-section { width: 100%; text-align: center; }                                                                                                                 
+        h2.white {                                                                                                                                                             
+          font-family: 'Bebas Neue', sans-serif;                                                                                                                               
+          font-size: 24px;
+          color: #fff;                                                                                                                                                         
+          text-align: center;                                                                                                                                                
+          line-height: 1;                                                                                                                                                      
+        }                                                                                                                                                                    
                                                                                                                                                                                
-          .section-label {                                                                                                                                                     
-              font-size: 11px;                                                                                                                                                 
-              text-transform: uppercase;
-              color: var(--primary);                                                                                                                                           
-              letter-spacing: 3px;        
-              margin-bottom: 10px;
-              font-weight: bold;                                                                                                                                               
-          }                                   
+        h2.green {
+          font-family: 'Bebas Neue', sans-serif;                                                                                                                               
+          font-size: 32px;                                                                                                                                                   
+          color: #00EC51;                 
+          text-align: center;
+          line-height: 1;                                                                                                                                                      
+        }                                     
                                                                                                                                                                                
-          .carousel-container { display: flex; width: 100%; overflow: hidden; padding: 10px 0; }
-          .carousel-track {                                                                                                                                                    
-              display: flex;
-              gap: 15px;                                                                                                                                                       
-              animation: scroll 35s linear infinite;
-              padding-left: 15px;                                                                                                                                              
-              width: max-content;         
-          }                                   
-                                                                                                                                                                               
-          @keyframes scroll {
-              0% { transform: translateX(0); }                                                                                                                                 
-              100% { transform: translateX(-50%); }
-          }                                                                                                                                                                    
-                  
-          .game-card {                        
-              background: rgba(255, 255, 255, 0.05);
-              backdrop-filter: blur(10px);
-              -webkit-backdrop-filter: blur(10px);                                                                                                                             
-              min-width: 220px;
-              padding: 15px;                                                                                                                                                   
-              border-radius: 20px;        
-              border: 1px solid rgba(255, 255, 255, 0.1);
-          }                                                                                                                                                                    
+        .subtitle {                                                                                                                                                          
+          font-size: 13px;                                                                                                                                                     
+          color: #fff;
+          text-align: center;                                                                                                                                                  
+          line-height: 1.3;                                                                                                                                                  
+        }                                     
                                           
-          .teams-row { display: flex; align-items: center; justify-content: center; gap: 15px; }                                                                               
-          .team { display: flex; flex-direction: column; align-items: center; min-width: 70px; }                                                                               
-          .team img { width: 35px; height: 35px; object-fit: contain; margin-bottom: 5px; }
-          .team span { font-size: 11px; font-weight: bold; white-space: nowrap; }                                                                                              
-          .vs { font-weight: 900; color: var(--primary); font-size: 14px; }
+        .btn {
+          display: block;                                                                                                                                                      
+          width: 100%;
+          background: #00EC51;                                                                                                                                                 
+          color: #000E01;                                                                                                                                                    
+          text-align: center;                 
+          font-size: 15px;                
+          font-weight: 800;
+          padding: 14px;                                                                                                                                                       
+          border-radius: 50px;                
+          text-decoration: none;                                                                                                                                               
+          margin-top: 10px;                                                                                                                                                  
+          box-shadow: 0 0 20px rgba(0, 236, 81, 0.4);                                                                                                                          
+        }                                     
                                                                                                                                                                                
-          .headline {                     
-              font-family: 'Kanit', sans-serif;                                                                                                                                
-              font-size: clamp(45px, 12vw, 60px);                                                                                                                              
-              font-weight: 900;                                                                                                                                                
-              font-style: italic;                                                                                                                                              
-              text-transform: uppercase;
-              margin-top: 170px;                                                                                                                                               
-              line-height: 0.85;          
-              text-align: center;                                                                                                                                              
-              text-shadow: 0 4px 20px rgba(0,0,0,1);                                                                                                                           
-          }                                   
+        .toast {                                                                                                                                                             
+          position: fixed;                                                                                                                                                     
+          top: 20px;
+          left: 50%;                                                                                                                                                           
+          transform: translate(-150vw, 0);                                                                                                                                   
+          background: #001301;
+          border: 1px solid #02FF6B;                                                                                                                                           
+          border-radius: 12px;
+          padding: 10px 15px;                                                                                                                                                  
+          display: flex;                                                                                                                                                     
+          align-items: center;
+          gap: 10px;
+          z-index: 9999;
+          transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+          white-space: nowrap;                
+        }                                 
                                                                                                                                                                                
-          .footer-section { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 20px; margin-top: auto; margin-bottom: 60px; }
+        .toast.show { transform: translate(-50%, 0); }                                                                                                                         
                                                                                                                                                                                
-          .alert-box {
-              width: 100%;                                                                                                                                                     
-              max-width: 360px;
-              background: rgba(255, 255, 255, 0.08);                                                                                                                           
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 12px;            
-              padding: 12px;              
-              margin-bottom: 15px;
-              backdrop-filter: blur(10px);                                                                                                                                     
-          }                               
+        .toast-icon { width: 10px; height: 10px; background: #02FF6B; border-radius: 50%; box-shadow: 0 0 10px #02FF6B; }                                                      
+        .toast-text { color: #fff; font-size: 13px; }                                                                                                                          
+        .toast-text b { color: #FFFF00; }     
                                                                                                                                                                                
-          .alert-box p { font-size: 12px; color: #fff; line-height: 1.4; text-align: center; }                                                                                 
-          .alert-box span { color: #ff8800; font-weight: bold; }
-                                                                                                                                                                               
-          .btn-container { width: 100%; max-width: 360px; }                                                                                                                    
-                                          
-          .btn-border-beam {                                                                                                                                                   
-              position: relative; padding: 2px; border-radius: 18px; overflow: hidden; display: block; text-decoration: none;                                                  
-              box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);                                                                                                                     
-          }                                                                                                                                                                    
-                                          
-          .btn-border-beam::before {                                                                                                                                           
-              content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;                                                                               
-              background: conic-gradient(transparent, transparent, var(--primary), transparent);                                                                               
-              animation: rotate 3s linear infinite;                                                                                                                            
-          }                               
-                                                                                                                                                                               
-          @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }                                                                            
-                                                                                                                                                                               
-          .btn-content {                                                                                                                                                       
-              position: relative; background: #00ff88; color: #000; padding: 20px; border-radius: 16px;                                                                        
-              font-size: 18px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
-          }                                                                                                                                                                    
-                                          
+        footer { margin-top: 15px; font-size: 10px; color: #555; text-align: center; }                                                                                       
       </style>                                                                                                                                                                 
-  </head>                                                                                                                                                                      
+  </head>                                                                                                                                                                    
   <body>                                                                                                                                                                       
-                                                                                                                                                                               
-      <div class="lp-wrapper">            
-
-          <div class="header-section">                                                                                                                                         
-              <p class="section-label">Jogos do Dia</p>
-                                                                                                                                                                               
-              <div class="carousel-container">                                                                                                                               
-                  <div class="carousel-track">
-                      <div class="game-card">                                                                                                                                  
-                          <div class="teams-row">
-                              <div class="team"><img src="tottenham.b32501c6.png"><span>Tottenham</span></div>                                                                     
-                              <div class="vs">VS</div>                                                                                                                       
-                              <div class="team"><img src="leeds-united.7a40d61b.png"><span>Leeds United</span></div>
-                          </div>              
-                      </div>                                                                                                                                                   
-                      <div class="game-card">
-                          <div class="teams-row">                                                                                                                              
-                              <div class="team"><img src="rayo-vallecano.4699fa09.png"><span>Rayo Vallecano</span></div>                                                
-                              <div class="vs">VS</div>                                                                                                                         
-                              <div class="team"><img src="girona.c049a8f9.png"><span>Girona</span></div>                                                           
-                          </div>              
-                      </div>                                                                                                                                                   
-                      <div class="game-card">                                                                                                                                
-                          <div class="teams-row">                                                                                                                              
-                              <div class="team"><img src="napoli.3e57a185.png"><span>Napoli</span></div>                                                 
-                              <div class="vs">VS</div>                                                                                                                         
-                              <div class="team"><img src="bologna.92dd0e4c.png"><span>Bologna</span></div>                                                               
-                          </div>              
-                      </div>                                                                                                                                                   
-                      <div class="game-card">
-                          <div class="teams-row">                                                                                                                              
-                              <div class="team"><img src="benfica.0e20d1a2.png"><span>Benfica</span></div>                                                                 
-                              <div class="vs">VS</div>                                                                                                                         
-                              <div class="team"><img src="sc-braga.8eb466f0.png"><span>Braga</span></div>                                                      
-                          </div>                                                                                                                                               
-                      </div>              
-                      <div class="game-card"><div class="teams-row"><div class="team"><img src="tottenham.b32501c6.png"><span>Tottenham</span></div><div     
-  class="vs">VS</div><div class="team"><img src="leeds-united.7a40d61b.png"><span>Leeds United</span></div></div></div>                                                                    
-                      <div class="game-card"><div class="teams-row"><div class="team"><img src="rayo-vallecano.4699fa09.png"><span>Rayo Vallecano</span></div><div 
-  class="vs">VS</div><div class="team"><img src="girona.c049a8f9.png"><span>Girona</span></div></div></div>                                                                    
-                      <div class="game-card"><div class="teams-row"><div class="team"><img src="napoli.3e57a185.png"><span>Napoli</span></div><div                 
-  class="vs">VS</div><div class="team"><img src="bologna.92dd0e4c.png"><span>Bologna</span></div></div></div>
-                      <div class="game-card"><div class="teams-row"><div class="team"><img src="benfica.0e20d1a2.png"><span>Benfica</span></div><div   
-  class="vs">VS</div><div class="team"><img src="sc-braga.8eb466f0.png"><span>Braga</span></div></div></div>                                
-                  </div>                                                                                                                                                       
-              </div>
-                                                                                                                                                                               
-              <h1 class="headline">ODD<br><span style="color: var(--primary)">LIBERADA</span></h1>
-          </div>                                                                                                                                                               
-                  
-          <div class="footer-section">                                                                                                                                         
-              <div class="alert-box">
-                  <p><span>*</span> Fale comigo agora, e em breve vou mandar uma oportunidade para nos forrarmos juntos!</p>                                                   
-              </div>                          
+                                                                                                                                                                             
+      <div id="notif-toast" class="toast">                                                                                                                                     
+          <div class="toast-icon"></div>                                                                                                                                     
+          <p class="toast-text"><b id="notif-nome">Marcos</b> acabou de entrar!</p>
+      </div>                                  
                                           
-              <div class="btn-container">
-                  <a href="https://rg.redirecionar.online/" class="btn-border-beam" onclick="dispararLead(event)">                                                             
-                      <span class="btn-content">🔥 PEGAR BILHETE</span>
-                  </a>                                                                                                                                                         
-              </div>
-          </div>                                                                                                                                                               
-  
+      <div class="card">
+        <div class="vagas-box">                                                                                                                                                
+            <p class="vagas-text">Restam apenas <span id="numero-vagas">12</span> vagas</p>
+        </div>                                                                                                                                                                 
+                                                                                                                                                                             
+        <img src="https://grupogratuito.website/wp-content/uploads/2025/10/Jota_LP-WhatsApp-2.png" alt="Jogador Caro">
+                                                                                                                                                                               
+        <h2 class="white">ACESSO LIBERADO AO</h2>
+        <h2 class="green">BILHETE DE ODD 30</h2>                                                                                                                              
+                                                                                                                                                                             
+        <p class="subtitle"><strong>Fale</strong> comigo <strong>AGORA</strong> para <strong>pegar</strong> o bilhete.</p>                                                     
+                                                                                                                                                                             
+        <a href="https://rg.redirecionar.online/" class="btn" onclick="dispararLead(event)">PEGAR AGORA 🚀</a>                                                                
       </div>                                                                                                                                                                   
+                                                                                                                                                                               
+      <footer>                                                                                                                                                                 
+        <strong>Proibido para menores de 18 anos.</strong><br>                                                                                                               
+        © 2025 – Jogador Caro                                                                                                                                                  
+      </footer>                                                                                                                                                              
+                                              
+      <script>                            
+        const nomes = ["Lucas", "Matheus", "Gabriel", "Felipe", "Rodrigo", "Rafael", "Bruno", "Daniel", "Gustavo", "Thiago", "Henrique", "Paulo", "Ariel", "Adriano", "Diogo",
+  "Ricardo", "Ivan", "Luan", "João", "Pedro", "Vitor", "Caique", "Douglas", "Marcos"];                                                                                         
                                           
-  </body>
+        function mostrarNotificacao() {                                                                                                                                        
+          const toast = document.getElementById('notif-toast');                                                                                                                
+          const nomeEl = document.getElementById('notif-nome');
+          if (toast && nomeEl) {                                                                                                                                               
+              nomeEl.innerText = nomes[Math.floor(Math.random() * nomes.length)];                                                                                            
+              toast.classList.add('show');                                                                                                                                     
+              setTimeout(() => { toast.classList.remove('show'); }, 3000);                                                                                                   
+          }
+        }                                                                                                                                                                      
+   
+        function iniciarFunil() {                                                                                                                                              
+          let contagem = 12;                                                                                                                                                 
+          const display = document.getElementById('numero-vagas');
+                                                                                                                                                                               
+          const timerVagas = setInterval(() => {
+            if (contagem > 2) {                                                                                                                                                
+              if (Math.random() > 0.3) {                                                                                                                                     
+                contagem--;                                                                                                                                                    
+                if(display) display.innerText = contagem;
+                setTimeout(mostrarNotificacao, 300);                                                                                                                           
+              }                                                                                                                                                              
+            } else { clearInterval(timerVagas); }
+          }, 4500);
+                                                                                                                                                                               
+          setTimeout(() => {
+              contagem--;                                                                                                                                                      
+              if(display) display.innerText = contagem;                                                                                                                      
+              mostrarNotificacao();           
+          }, 800);                        
+        }
+        window.onload = iniciarFunil;                                                                                                                                          
+      </script>
+  </body>                                                                                                                                                                      
   </html>
