@@ -1,223 +1,554 @@
-<!DOCTYPE html>                                                                                                                                                              
-  <html lang="pt-BR">                                                                                                                                                          
-  <head>                                                                                                                                                                       
-      <meta charset="UTF-8">                                                                                                                                                   
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">                                                              
-      <title>Comunidade HN - Oficial</title>  
-                                                                                                                                                                               
-      <script>                            
-      !function(f,b,e,v,n,t,s)                                                                                                                                                 
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?                                                                                                                        
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};                                                                                                                
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';                                                                                                                
-      n.queue=[];t=b.createElement(e);t.async=!0;                                                                                                                            
-      t.src=v;s=b.getElementsByTagName(e)[0];                                                                                                                                  
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');                                                                                                                       
-      fbq('init', '961619428689288');                                                                                                                                        
-      fbq('track', 'PageView');                                                                                                                                                
-                                                                                                                                                                             
-      async function dispararLead(e) {                                                                                                                                         
-        e.preventDefault();                                                                                                                                                    
-        const eventId = 'cr_' + Date.now();
-        fbq('track', 'CompleteRegistration', { currency: 'BRL', value: 0 }, { eventID: eventId });                                                                             
-                                                                                                                                                                             
-        try {                                                                                                                                                                  
-          await fetch('https://track-jp-production.up.railway.app/api/lead', {                                                                                                 
-            method: 'POST',                                                                                                                                                    
-            headers: { 'Content-Type': 'application/json' },                                                                                                                   
-            body: JSON.stringify({                                                                                                                                             
-              fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,                                                                                                         
-              fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
-              userAgent: navigator.userAgent,                                                                                                                                  
-              eventId: eventId                                                                                                                                                 
-            })                                                                                                                                                                 
-          });                                                                                                                                                                  
-        } catch(err) {}                                                                                                                                                        
-                                                                                                                                                                               
-        window.location.href = 'https://rg.redirecionar.online/';                                                                                                            
-      }
-      </script>                                                                                                                                                                
-   
-      <link rel="preconnect" href="https://fonts.googleapis.com">                                                                                                              
-      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&display=swap" rel="stylesheet">                                              
-                                              
-      <style>                                                                                                                                                                  
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-                                                                                                                                                                               
-        body {                                                                                                                                                               
-          background-color: #000E01;                                                                                                                                           
-          height: 100vh;                                                                                                                                                       
-          display: flex;
-          flex-direction: column;                                                                                                                                              
-          align-items: center;                                                                                                                                               
-          justify-content: center;            
-          font-family: 'Inter', sans-serif;
-          padding: 10px;
-          overflow: hidden;                                                                                                                                                    
-        }                                     
-                                                                                                                                                                               
-        .card {                                                                                                                                                              
-          width: 100%;                                                                                                                                                         
-          max-width: 380px;
-          background: #001301;                                                                                                                                                 
-          border: 1px solid #02FF6B;                                                                                                                                         
-          border-radius: 20px;            
-          padding: 15px 20px 25px;
-          display: flex;                                                                                                                                                       
-          flex-direction: column;         
-          align-items: center;                                                                                                                                                 
-          gap: 8px;                                                                                                                                                            
-          position: relative;                 
-        }                                                                                                                                                                      
-                                                                                                                                                                             
-        .vagas-box {                                                                                                                                                           
-          background: rgba(255, 255, 0, 0.1);
-          border: 1px solid #FFFF00;                                                                                                                                           
-          border-radius: 8px;                                                                                                                                                
-          padding: 5px 15px;
-          margin-bottom: 5px;                                                                                                                                                  
-          animation: pulse-yellow 2s infinite;
-        }                                                                                                                                                                      
-                                                                                                                                                                               
-        .vagas-text { color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; }
-        #numero-vagas { color: #FFFF00; font-size: 16px; font-weight: bold; }                                                                                                  
-                                                                                                                                                                             
-        @keyframes pulse-yellow {                                                                                                                                              
-          0% { box-shadow: 0 0 0px rgba(255, 255, 0, 0); }
-          50% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.3); }                                                                                                                 
-          100% { box-shadow: 0 0 0px rgba(255, 255, 0, 0); }                                                                                                                 
-        }                                                                                                                                                                      
-                                                                                                                                                                               
-        .card img { width: 100%; max-width: 280px; height: auto; }                                                                                                             
-                                                                                                                                                                               
-        h2.white {                                                                                                                                                             
-          font-family: 'Bebas Neue', sans-serif;                                                                                                                               
-          font-size: 24px;
-          color: #fff;                                                                                                                                                         
-          text-align: center;                                                                                                                                                
-          line-height: 1;                                                                                                                                                      
-        }                                                                                                                                                                    
-                                                                                                                                                                               
-        h2.green {
-          font-family: 'Bebas Neue', sans-serif;                                                                                                                               
-          font-size: 32px;                                                                                                                                                   
-          color: #00EC51;                 
-          text-align: center;
-          line-height: 1;                                                                                                                                                      
-        }                                     
-                                                                                                                                                                               
-        .subtitle {                                                                                                                                                          
-          font-size: 13px;                                                                                                                                                     
-          color: #fff;
-          text-align: center;                                                                                                                                                  
-          line-height: 1.3;                                                                                                                                                  
-        }                                     
-                                          
-        .btn {
-          display: block;                                                                                                                                                      
-          width: 100%;
-          background: #00EC51;                                                                                                                                                 
-          color: #000E01;                                                                                                                                                    
-          text-align: center;                 
-          font-size: 15px;                
-          font-weight: 800;
-          padding: 14px;                                                                                                                                                       
-          border-radius: 50px;                
-          text-decoration: none;                                                                                                                                               
-          margin-top: 10px;                                                                                                                                                  
-          box-shadow: 0 0 20px rgba(0, 236, 81, 0.4);                                                                                                                          
-        }                                     
-                                                                                                                                                                               
-        .toast {                                                                                                                                                             
-          position: fixed;                                                                                                                                                     
-          top: 20px;
-          left: 50%;                                                                                                                                                           
-          transform: translate(-150vw, 0);                                                                                                                                   
-          background: #001301;
-          border: 1px solid #02FF6B;                                                                                                                                           
-          border-radius: 12px;
-          padding: 10px 15px;                                                                                                                                                  
-          display: flex;                                                                                                                                                     
-          align-items: center;
-          gap: 10px;
-          z-index: 9999;
-          transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-          white-space: nowrap;                
-        }                                 
-                                                                                                                                                                               
-        .toast.show { transform: translate(-50%, 0); }                                                                                                                         
-                                                                                                                                                                               
-        .toast-icon { width: 10px; height: 10px; background: #02FF6B; border-radius: 50%; box-shadow: 0 0 10px #02FF6B; }                                                      
-        .toast-text { color: #fff; font-size: 13px; }                                                                                                                          
-        .toast-text b { color: #FFFF00; }     
-                                                                                                                                                                               
-        footer { margin-top: 15px; font-size: 10px; color: #555; text-align: center; }                                                                                       
-      </style>                                                                                                                                                                 
-  </head>                                                                                                                                                                    
-  <body>                                                                                                                                                                       
-                                                                                                                                                                             
-      <div id="notif-toast" class="toast">                                                                                                                                     
-          <div class="toast-icon"></div>                                                                                                                                     
-          <p class="toast-text"><b id="notif-nome">Marcos</b> acabou de entrar!</p>
-      </div>                                  
-                                          
-      <div class="card">
-        <div class="vagas-box">                                                                                                                                                
-            <p class="vagas-text">Restam apenas <span id="numero-vagas">12</span> vagas</p>
-        </div>                                                                                                                                                                 
-                                                                                                                                                                             
-        <img src="https://grupogratuito.website/wp-content/uploads/2025/10/Jota_LP-WhatsApp-2.png" alt="Jogador Caro">
-                                                                                                                                                                               
-        <h2 class="white">ACESSO LIBERADO AO</h2>
-        <h2 class="green">BILHETE DE ODD 100</h2>                                                                                                                              
-                                                                                                                                                                             
-        <p class="subtitle"><strong>Fale</strong> comigo <strong>AGORA</strong> para <strong>pegar</strong> o bilhete.</p>                                                     
-                                                                                                                                                                             
-        <a href="https://rg.redirecionar.online/" class="btn" onclick="dispararLead(event)">PEGAR AGORA 🚀</a>                                                                
-      </div>                                                                                                                                                                   
-                                                                                                                                                                               
-      <footer>                                                                                                                                                                 
-        <strong>Proibido para menores de 18 anos.</strong><br>                                                                                                               
-        © 2025 – Jogador Caro                                                                                                                                                  
-      </footer>                                                                                                                                                              
-                                              
-      <script>                            
-        const nomes = ["Lucas", "Matheus", "Gabriel", "Felipe", "Rodrigo", "Rafael", "Bruno", "Daniel", "Gustavo", "Thiago", "Henrique", "Paulo", "Ariel", "Adriano", "Diogo",
-  "Ricardo", "Ivan", "Luan", "João", "Pedro", "Vitor", "Caique", "Douglas", "Marcos"];                                                                                         
-                                          
-        function mostrarNotificacao() {                                                                                                                                        
-          const toast = document.getElementById('notif-toast');                                                                                                                
-          const nomeEl = document.getElementById('notif-nome');
-          if (toast && nomeEl) {                                                                                                                                               
-              nomeEl.innerText = nomes[Math.floor(Math.random() * nomes.length)];                                                                                            
-              toast.classList.add('show');                                                                                                                                     
-              setTimeout(() => { toast.classList.remove('show'); }, 3000);                                                                                                   
-          }
-        }                                                                                                                                                                      
-   
-        function iniciarFunil() {                                                                                                                                              
-          let contagem = 12;                                                                                                                                                 
-          const display = document.getElementById('numero-vagas');
-                                                                                                                                                                               
-          const timerVagas = setInterval(() => {
-            if (contagem > 2) {                                                                                                                                                
-              if (Math.random() > 0.3) {                                                                                                                                     
-                contagem--;                                                                                                                                                    
-                if(display) display.innerText = contagem;
-                setTimeout(mostrarNotificacao, 300);                                                                                                                           
-              }                                                                                                                                                              
-            } else { clearInterval(timerVagas); }
-          }, 4500);
-                                                                                                                                                                               
-          setTimeout(() => {
-              contagem--;                                                                                                                                                      
-              if(display) display.innerText = contagem;                                                                                                                      
-              mostrarNotificacao();           
-          }, 800);                        
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Comunidade do Jota - Bilhete do Dia</title>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '961619428689288');
+    fbq('track', 'PageView');
+
+    async function dispararLead() {
+      const eventId = 'Donate' + Date.now();
+      fbq('track', 'Donate', {}, { eventID: eventId });
+      await fetch('https://track-jp-production.up.railway.app/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
+          fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
+          userAgent: navigator.userAgent,
+          eventId: eventId
+        })
+      });
+    }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1629271981642400&ev=PageView&noscript=1"/></noscript>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;0,900;1,900&family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --green: #00ff88;
+            --green-dim: rgba(0,255,136,0.15);
+            --green-glow: rgba(0,255,136,0.35);
+            --orange: #ff6b00;
+            --red: #ff2d2d;
+            --bg: #080808;
+            --card: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
         }
-        window.onload = iniciarFunil;                                                                                                                                          
-      </script>
-  </body>                                                                                                                                                                      
-  </html>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ── LIVE BADGE ── */
+        .live-bar {
+            background: var(--red);
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .live-dot {
+            width: 7px; height: 7px;
+            background: #fff;
+            border-radius: 50%;
+            animation: blink 1s ease-in-out infinite;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+        /* ── MAIN WRAPPER ── */
+        .lp-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: calc(100vh - 33px);
+            display: flex;
+            flex-direction: column;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.92) 60%, #080808 100%),
+                url('api-gp.webp') center/cover no-repeat fixed;
+            padding: 24px 0 32px;
+        }
+
+        /* ── HEADER ── */
+        .header-section { width: 100%; text-align: center; }
+
+        .jogos-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--green);
+            background: var(--green-dim);
+            border: 1px solid rgba(0,255,136,0.25);
+            border-radius: 999px;
+            padding: 5px 14px;
+            margin-bottom: 14px;
+        }
+
+        /* ── CAROUSEL ── */
+        .carousel-container { display: flex; width: 100%; overflow: hidden; padding: 10px 0; }
+        .carousel-track {
+            display: flex;
+            gap: 12px;
+            animation: scroll 32s linear infinite;
+            padding-left: 12px;
+            width: max-content;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .game-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            min-width: 200px;
+            padding: 12px 16px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .teams-row { display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .team { display: flex; flex-direction: column; align-items: center; min-width: 65px; }
+        .team img { width: 32px; height: 32px; object-fit: contain; margin-bottom: 5px; }
+        .team span { font-size: 10px; font-weight: 700; white-space: nowrap; color: #ddd; }
+        .vs { font-weight: 900; color: var(--green); font-size: 13px; font-family: 'Kanit', sans-serif; }
+
+        /* ── HEADLINE ── */
+        .headline-block {
+            padding: 0 20px;
+            margin-top: 28px;
+            text-align: center;
+        }
+        .headline-sub {
+            font-size: 13px;
+            color: #aaa;
+            font-weight: 500;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .headline {
+            font-family: 'Kanit', sans-serif;
+            font-size: clamp(52px, 15vw, 72px);
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            line-height: 0.88;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+        }
+        .headline .green { color: var(--green); }
+        .headline-desc {
+            font-size: 14px;
+            color: #bbb;
+            margin-top: 14px;
+            line-height: 1.5;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .headline-desc strong { color: #fff; }
+
+        /* ── SOCIAL PROOF ── */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 22px;
+            padding: 0 20px;
+        }
+        .proof-item { text-align: center; }
+        .proof-number {
+            font-family: 'Kanit', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--green);
+            line-height: 1;
+        }
+        .proof-label { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+        .proof-divider { width: 1px; height: 36px; background: var(--border); }
+
+        /* ── TIMER ── */
+        .urgency-block {
+            margin: 22px 20px 0;
+        }
+        .timer-box {
+            background: rgba(255,45,45,0.08);
+            border: 1px solid rgba(255,45,45,0.25);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .timer-icon { font-size: 20px; flex-shrink: 0; }
+        .timer-text { font-size: 12px; color: #ccc; line-height: 1.4; }
+        .timer-text strong { color: #ff6060; }
+        .timer-countdown {
+            margin-left: auto;
+            font-family: 'Kanit', sans-serif;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--red);
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+
+        /* ── TESTIMONIAL STRIP ── */
+        .testimonial-strip {
+            margin: 20px 0 0;
+            padding: 0 20px;
+        }
+        .testimonial-inner {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .testi-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .testi-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: var(--green-dim);
+            border: 1px solid rgba(0,255,136,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+        .testi-content { flex: 1; }
+        .testi-name { font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+        .testi-msg { font-size: 11px; color: #aaa; line-height: 1.4; }
+        .testi-msg span { color: var(--green); font-weight: 600; }
+        .testi-divider { height: 1px; background: var(--border); }
+
+        /* ── FOOTER / CTA ── */
+        .footer-section {
+            width: 100%;
+            padding: 24px 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .alert-box {
+            width: 100%;
+            max-width: 380px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .alert-box p { font-size: 12px; color: #ccc; line-height: 1.5; }
+        .alert-box span { color: var(--orange); font-weight: 700; }
+
+        /* Spots left bar */
+        .spots-bar {
+            width: 100%;
+            max-width: 380px;
+            margin-bottom: 12px;
+        }
+        .spots-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+        .spots-header strong { color: var(--orange); }
+        .spots-track {
+            height: 5px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .spots-fill {
+            height: 100%;
+            width: 78%;
+            background: linear-gradient(90deg, var(--orange), var(--red));
+            border-radius: 999px;
+        }
+
+        /* CTA button */
+        .btn-container { width: 100%; max-width: 380px; }
+        .btn-border-beam {
+            position: relative;
+            padding: 3px;
+            border-radius: 18px;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            box-shadow: 0 0 40px rgba(255,200,0,0.55), 0 0 80px rgba(255,120,0,0.3);
+        }
+        .btn-border-beam::before {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(transparent, #ffe000, #ff8c00, #ffe000, transparent);
+            animation: rotate 2s linear infinite;
+        }
+        @keyframes rotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+        .btn-content {
+            position: relative;
+            background: linear-gradient(135deg, #ffb700 0%, #ff6a00 50%, #ff3d00 100%);
+            color: #fff;
+            padding: 20px 18px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-family: 'Kanit', sans-serif;
+            letter-spacing: 1.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+            text-align: center;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            animation: pulse-btn 2s ease-in-out infinite;
+        }
+        @keyframes pulse-btn {
+            0%,100% { box-shadow: inset 0 0 0 rgba(255,255,255,0); }
+            50% { box-shadow: inset 0 0 30px rgba(255,255,255,0.15); }
+        }
+        .btn-sub {
+            font-size: 10px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: rgba(255,255,255,0.85);
+            text-transform: none;
+            letter-spacing: 0;
+            margin-top: 4px;
+            text-shadow: none;
+        }
+
+        .cta-below {
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+        .cta-below span { color: #999; }
+    </style>
+</head>
+<body>
+
+    <!-- LIVE BAR -->
+    <div class="live-bar">
+        <div class="live-dot"></div>
+        Análises ao vivo · Jogos de hoje
+    </div>
+
+    <div class="lp-wrapper">
+
+        <!-- HEADER + CAROUSEL -->
+        <div class="header-section">
+            <div class="jogos-label">⚽ Jogos do dia</div>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Cards originais -->
+                    <div class="game-card">
+                        <div class="teams-row">
+                            <div class="team"><img src="vitoria.839132be.png"><span>Vitória</span></div>
+                            <div class="vs">VS</div>
+                            <div class="team"><img src="flamengo.9c5e3332.png"><span>Flamengo</span></div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="teams-row">
+                            <div class="team"><img src="corinthians.689ec041.png"><span>Corinthians</span></div>
+                            <div class="vs">VS</div>
+                            <div class="team"><img src="barra.3783024a.png"><span>Barra-SC</span></div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="teams-row">
+                            <div class="team"><img src="confianca.e8003149.png"><span>Confiança</span></div>
+                            <div class="vs">VS</div>
+                            <div class="team"><img src="gremio.e8c992c0.png"><span>Grêmio</span></div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="teams-row">
+                            <div class="team"><img src="atletico-goianiense.1ec31f5e.png"><span>Atlético Goianiense</span></div>
+                            <div class="vs">VS</div>
+                            <div class="team"><img src="athletico-paranaense.38705958.png"><span>Athletico Paranaense</span></div>
+                        </div>
+                    </div>
+                    <!-- Duplicados para loop infinito -->
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="vitoria.839132be.png"><span>Vitória</span></div><div class="vs">VS</div><div class="team"><img src="flamengo.9c5e3332.png"><span>Flamengo</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="corinthians.689ec041.png"><span>Corinthians</span></div><div class="vs">VS</div><div class="team"><img src="barra.3783024a.png"><span>Barra-SC</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="confianca.e8003149.png"><span>Confiança</span></div><div class="vs">VS</div><div class="team"><img src="gremio.e8c992c0.png"><span>Grêmio</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="atletico-goianiense.1ec31f5e.png"><span>Atlético Goianiense</span></div><div class="vs">VS</div><div class="team"><img src="athletico-paranaense.38705958.png"><span>Athletico Paranaense</span></div></div></div>
+                </div>
+            </div>
+
+            <!-- HEADLINE -->
+            <div class="headline-block">
+                <p class="headline-sub">Análise exclusiva de hoje</p>
+                <h1 class="headline">BILHETE<br><span class="green">CERTEIRO</span></h1>
+                <p class="headline-desc">Já mandei o bilhete do dia pro grupo. <strong>Acerta quem entra agora.</strong></p>
+            </div>
+
+            <!-- SOCIAL PROOF -->
+            <div class="social-proof">
+                <div class="proof-item">
+                    <div class="proof-number">4.7k</div>
+                    <div class="proof-label">No grupo</div>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <div class="proof-number">83%</div>
+                    <div class="proof-label">Acerto mês</div>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <div class="proof-number">R$347</div>
+                    <div class="proof-label">Lucro médio</div>
+                </div>
+            </div>
+
+            <!-- TIMER URGENCY -->
+            <div class="urgency-block">
+                <div class="timer-box">
+                    <div class="timer-icon">🔥</div>
+                    <div class="timer-text">
+                        <strong>Bilhete expira em:</strong><br>
+                        Depois disso não tem mais acesso
+                    </div>
+                    <div class="timer-countdown" id="timer">23:47</div>
+                </div>
+            </div>
+
+            <!-- MINI TESTIMONIALS -->
+            <div class="testimonial-strip">
+                <div class="testimonial-inner">
+                    <div class="testi-item">
+                        <div class="testi-avatar">M</div>
+                        <div class="testi-content">
+                            <div class="testi-name">Marcos R. · há 18 min</div>
+                            <div class="testi-msg">Entrei hoje e já <span>bati R$220</span> no primeiro bilhete 🤑</div>
+                        </div>
+                    </div>
+                    <div class="testi-divider"></div>
+                    <div class="testi-item">
+                        <div class="testi-avatar">A</div>
+                        <div class="testi-content">
+                            <div class="testi-name">Ana C. · há 42 min</div>
+                            <div class="testi-msg">Terceira semana seguida no verde. <span>Melhor decisão do ano.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER / CTA -->
+        <div class="footer-section">
+
+            <!-- SPOTS BAR -->
+            <div class="spots-bar">
+                <div class="spots-header">
+                    <span>Vagas hoje</span>
+                    <strong>78 de 100 preenchidas</strong>
+                </div>
+                <div class="spots-track">
+                    <div class="spots-fill"></div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <p><span>⚡ Atenção:</span> Fale comigo agora. Vou te mandar o bilhete do dia assim que você entrar no grupo — gratuito, sem enrolação.</p>
+            </div>
+
+            <div class="btn-container">
+                <a href="https://rg.redirecionar.online/" class="btn-border-beam" onclick="dispararLead()">
+                    <span class="btn-content">
+                        🔥 PEGAR MEU BILHETE AGORA
+                        <span class="btn-sub">Acesso gratuito · Vagas limitadas</span>
+                    </span>
+                </a>
+            </div>
+
+            <p class="cta-below"><span>🔒 100% gratuito.</span> Sem cartão, sem cadastro chato.</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Timer regressivo dinâmico
+        function startTimer() {
+            const saved = sessionStorage.getItem('lp_timer_end');
+            let end;
+            if (saved) {
+                end = parseInt(saved);
+            } else {
+                // Timer randômico entre 18 e 27 minutos para parecer orgânico
+                const minutes = Math.floor(Math.random() * 9) + 18;
+                end = Date.now() + minutes * 60 * 1000;
+                sessionStorage.setItem('lp_timer_end', end);
+            }
+
+            const el = document.getElementById('timer');
+
+            function tick() {
+                const diff = end - Date.now();
+                if (diff <= 0) {
+                    el.textContent = '00:00';
+                    return;
+                }
+                const m = Math.floor(diff / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                el.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+                requestAnimationFrame(tick);
+            }
+            tick();
+        }
+        startTimer();
+    </script>
+
+</body>
+</html>
