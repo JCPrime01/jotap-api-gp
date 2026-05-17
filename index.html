@@ -85,7 +85,6 @@
         .lp-wrapper {
             position: relative;
             width: 100%;
-            min-height: calc(100vh - 33px);
             display: flex;
             flex-direction: column;
             background:
@@ -259,6 +258,15 @@
         .testi-msg span { color: var(--green); font-weight: 600; }
         .testi-divider { height: 1px; background: var(--border); }
 
+        /* ── CTA MIDDLE ── */
+        .cta-middle {
+            width: 100%;
+            padding: 24px 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         /* ── FOOTER / CTA ── */
         .footer-section {
             width: 100%;
@@ -390,40 +398,38 @@
 
             <div class="carousel-container">
                 <div class="carousel-track">
-                    <!-- Cards originais -->
                     <div class="game-card">
                         <div class="teams-row">
-                            <div class="team"><img src="internacional.319b9dc2.png"><span>Internacional</span></div>
+                            <div class="team"><img src="athletico-paranaense.38705958 (1).png"><span>Athletico-PR</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="vasco-da-gama.c7245b3e.png"><span>Vasco</span></div>
+                            <div class="team"><img src="flamengo.9c5e3332.png"><span>Flamengo</span></div>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="teams-row">
-                            <div class="team"><img src="atletico-mineiro.481ef277.png"><span>Atlético-MG</span></div>
+                            <div class="team"><img src="bahia.406c80c7.png"><span>Bahia</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="mirassol.5153c341.png"><span>Mirassol</span></div>
+                            <div class="team"><img src="gremio.e8c992c0.png"><span>Grêmio</span></div>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="teams-row">
-                            <div class="team"><img src="fluminense.21ef58d1.png"><span>Fluminense</span></div>
+                            <div class="team"><img src="botafogo.fd9f548d.png"><span>Botafogo</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="sao-paulo.84a524e3.png"><span>São Paulo</span></div>
+                            <div class="team"><img src="coríntios.689ec041.png"><span>Corinthians</span></div>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="teams-row">
-                            <div class="team"><img src="palmeiras.e2be744c.png"><span>Palmeiras</span></div>
+                            <div class="team"><img src="santos.6d914e21.png"><span>Santos</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="cruzeiro.d39bf864.png"><span>Cruzeiro</span></div>
+                            <div class="team"><img src="coritiba.d65cdfa0.png"><span>Coritiba</span></div>
                         </div>
                     </div>
-                    <!-- Duplicados para loop infinito -->
-                    <div class="game-card"><div class="teams-row"><div class="team"><img src="chelsea.2cba05ff.png"><span>Chelsea</span></div><div class="vs">VS</div><div class="team"><img src="manchester-city.8d2b6688.png"><span>Manchester City</span></div></div></div>
-                    <div class="game-card"><div class="teams-row"><div class="team"><img src="internacional.319b9dc2.png"><span>Internacional</span></div><div class="vs">VS</div><div class="team"><img src="vasco-da-gama.c7245b3e.png"><span>Vasco</span></div></div></div>
-                    <div class="game-card"><div class="teams-row"><div class="team"><img src="mirassol.5153c341.png"><span>Mirassol</span></div><div class="vs">VS</div><div class="team"><img src="atletico-mineiro.481ef277.png"><span>Atlético-MG</span></div></div></div>
-                    <div class="game-card"><div class="teams-row"><div class="team"><img src="atletico-goianiense.1ec31f5e.png"><span>Atlético Goianiense</span></div><div class="vs">VS</div><div class="team"><img src="athletico-paranaense.38705958.png"><span>Athletico Paranaense</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="athletico-paranaense.38705958 (1).png"><span>Athletico-PR</span></div><div class="vs">VS</div><div class="team"><img src="flamengo.9c5e3332.png"><span>Flamengo</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="bahia.406c80c7.png"><span>Bahia</span></div><div class="vs">VS</div><div class="team"><img src="gremio.e8c992c0.png"><span>Grêmio</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="botafogo.fd9f548d.png"><span>Botafogo</span></div><div class="vs">VS</div><div class="team"><img src="coríntios.689ec041.png"><span>Corinthians</span></div></div></div>
+                    <div class="game-card"><div class="teams-row"><div class="team"><img src="santos.6d914e21.png"><span>Santos</span></div><div class="vs">VS</div><div class="team"><img src="coritiba.d65cdfa0.png"><span>Coritiba</span></div></div></div>
                 </div>
             </div>
 
@@ -450,6 +456,34 @@
                     <div class="proof-number">R$347</div>
                     <div class="proof-label">Lucro médio</div>
                 </div>
+            </div>
+
+            <!-- CTA NO MEIO DA PÁGINA -->
+            <div class="cta-middle">
+                <div class="spots-bar">
+                    <div class="spots-header">
+                        <span>Vagas hoje</span>
+                        <strong>78 de 100 preenchidas</strong>
+                    </div>
+                    <div class="spots-track">
+                        <div class="spots-fill"></div>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <p><span>⚡ Atenção:</span> Fale comigo agora. Vou te mandar o bilhete do dia assim que você entrar no grupo — gratuito, sem enrolação.</p>
+                </div>
+
+                <div class="btn-container">
+                    <a href="https://rg.redirecionar.online/" class="btn-border-beam" onclick="dispararLead()">
+                        <span class="btn-content">
+                            🔥 PEGAR MEU BILHETE AGORA
+                            <span class="btn-sub">Acesso gratuito · Vagas limitadas</span>
+                        </span>
+                    </a>
+                </div>
+
+                <p class="cta-below"><span>🔒 100% gratuito.</span> Sem cartão, sem cadastro chato.</p>
             </div>
 
             <!-- TIMER URGENCY -->
@@ -486,47 +520,15 @@
             </div>
         </div>
 
-        <!-- FOOTER / CTA -->
-        <div class="footer-section">
-
-            <!-- SPOTS BAR -->
-            <div class="spots-bar">
-                <div class="spots-header">
-                    <span>Vagas hoje</span>
-                    <strong>78 de 100 preenchidas</strong>
-                </div>
-                <div class="spots-track">
-                    <div class="spots-fill"></div>
-                </div>
-            </div>
-
-            <div class="alert-box">
-                <p><span>⚡ Atenção:</span> Fale comigo agora. Vou te mandar o bilhete do dia assim que você entrar no grupo — gratuito, sem enrolação.</p>
-            </div>
-
-            <div class="btn-container">
-                <a href="https://rg.redirecionar.online/" class="btn-border-beam" onclick="dispararLead()">
-                    <span class="btn-content">
-                        🔥 PEGAR MEU BILHETE AGORA
-                        <span class="btn-sub">Acesso gratuito · Vagas limitadas</span>
-                    </span>
-                </a>
-            </div>
-
-            <p class="cta-below"><span>🔒 100% gratuito.</span> Sem cartão, sem cadastro chato.</p>
-        </div>
-
     </div>
 
     <script>
-        // Timer regressivo dinâmico
         function startTimer() {
             const saved = sessionStorage.getItem('lp_timer_end');
             let end;
             if (saved) {
                 end = parseInt(saved);
             } else {
-                // Timer randômico entre 18 e 27 minutos para parecer orgânico
                 const minutes = Math.floor(Math.random() * 9) + 18;
                 end = Date.now() + minutes * 60 * 1000;
                 sessionStorage.setItem('lp_timer_end', end);
